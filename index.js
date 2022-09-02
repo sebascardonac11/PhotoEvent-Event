@@ -7,7 +7,6 @@ exports.handler = async function (event, context, callback) {
   var authorizationDecoded = jwt_decode(event.headers.Authorization);
   switch (event.httpMethod) {
     case 'GET':
-
         this.response = await session.getEvents(authorizationDecoded.email);
       break;
     case 'POST':
