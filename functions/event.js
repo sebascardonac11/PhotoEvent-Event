@@ -14,7 +14,7 @@ module.exports = class Event {
             var result = await dynamo.scan(params).promise();
             var data = result.Items;
 
-            var response=dynamo.query(KeyConditionExpression)
+           // var response=dynamo.query(KeyConditionExpression)
             return {
                 statusCode: 200,
                 data: data
