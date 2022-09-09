@@ -2,7 +2,7 @@ name: Deploy Event Production
 on:
   push:
     branches:
-    - master
+    - main
 env:
   enviromentName: pro
 jobs:
