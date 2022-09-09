@@ -50,8 +50,6 @@ module.exports = class Event {
         }
     }
 }
-
-
 /**
  * Data dummy para dynamo
  * 
