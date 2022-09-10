@@ -58,7 +58,7 @@ module.exports = class Event {
     "S": "1"
   },
   "banner": {
-    "S": "https://scontent.feoh4-3.fna.fbcdn.net/v/t39.30808-6/288272220_5180596878684788_995914729887946854_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=730e14&_nc_ohc=bvJZslVTWJIAX_Z0476&_nc_ht=scontent.feoh4-3.fna&oh=00_AT-W0AtXhnw1jElHYhqFvkHUMdWtKgCTbuOkBCyMaWk94Q&oe=6308D111"
+    "S": "https://fedemoto.org/w/wp-content/uploads/2022/09/Homenaje-Salva-68-1-scaled.jpg"
   },
   "date": {
     "S": "2022-02-17"
