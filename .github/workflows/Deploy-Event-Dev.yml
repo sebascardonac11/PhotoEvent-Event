@@ -2,7 +2,7 @@ name: Deploy Event Development
 on:
   push:
     branches:
-    - feature/v1
+    - feature/v2
 env:
   enviromentName: dev
 jobs:
