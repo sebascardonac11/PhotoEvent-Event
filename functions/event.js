@@ -11,7 +11,11 @@ module.exports = class Event {
     async getEvents(email) {
         try {
             var params = {
-                TableName: this.DYNAMODBTABLE
+                TableName: this.DYNAMODBTABLE,
+                KeyConditionExpression: 'Entity =:s',
+                ExpressionAttributeValues: {
+                  ':s': 'EVENT',
+                }
             }
             var result = await dynamo.scan(params).promise();
             var data = result.Items;
