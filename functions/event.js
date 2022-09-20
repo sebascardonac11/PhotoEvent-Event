@@ -4,12 +4,14 @@ const s3Client = new AWS.S3();
 const dynamo = new AWS.DynamoDB.DocumentClient();
 
 module.exports = class Event {
-    constructor() {
+  DYNAMODBTABLE;
+    constructor(table) {
+      this.DYNAMODBTABLE = table
     }
     async getEvents(email) {
         try {
             var params = {
-                TableName: "photoEvent-Dynamo-event"
+                TableName: this.DYNAMODBTABLE
             }
             var result = await dynamo.scan(params).promise();
             var data = result.Items;
@@ -53,9 +55,17 @@ module.exports = class Event {
 /**
  * Data dummy para dynamo
  * 
- {
-  "id": {
-    "S": "1"
+ * 
+ * 
+ * {
+  "Key": {
+    "S": "SPONSOR#cdc53b1f-eb9a-4114-8346-29de56fc5133 "
+  },
+  "Sort": {
+    "S": "EVENT#12bf90bf-95a6-4692-bc04-4b19a5b0aa65 "
+  },
+  "name": {
+    "S": "GP Colombia PRO"
   },
   "banner": {
     "S": "https://fedemoto.org/w/wp-content/uploads/2022/09/Homenaje-Salva-68-1-scaled.jpg"
@@ -68,9 +78,6 @@ module.exports = class Event {
   },
   "location": {
     "S": "Tocancipa"
-  },
-  "name": {
-    "S": "GP Colombia PRO"
   },
   "photographers": {
     "SS": [
