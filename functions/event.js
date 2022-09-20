@@ -11,16 +11,14 @@ module.exports = class Event {
         try {
             var params = {
                 TableName: this.DYNAMODBTABLE,
-                IndexName: 'myGSI',
-                KeyConditionExpression: 'Entity =:s',
+                IndexName: 'EntittGSI',
+                KeyConditionExpression: 'entity =:s',
                 ExpressionAttributeValues: {
                   ':s': 'EVENT'
                 }
             }
             var result = await dynamo.query(params).promise();
             var data = result.Items;
-
-           // var response=dynamo.query(KeyConditionExpression)
             return {
                 statusCode: 200,
                 data: data
