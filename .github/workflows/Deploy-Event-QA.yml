@@ -4,12 +4,12 @@ on:
     branches:
     - main
 env:
-  enviromentName: pro
+  enviromentName: QA
 jobs:
   Deployment:
     runs-on: ubuntu-latest
     environment:
-      name: pro
+      name: QA
       url: https://d3ri3uhvzvztpt.cloudfront.net/
     steps:
       - uses: actions/checkout@v2
@@ -38,4 +38,4 @@ jobs:
       - name: Configutation
         run: |
           aws lambda update-function-configuration --function-name ${{ secrets.LAMBDAFUNCNAME }} \
-            --environment "Variables={DYNAMODB=photoEvent,BUCKET=photoevent}" 
+            --environment "Variables={DYNAMODB=photoEvent,BUCKET=photoeventqa}" 

@@ -1,9 +1,9 @@
-const Event = require('./functions/event');
+const PhotoEvent = require('./functions/event');
 const jwt_decode = require('jwt-decode');
 
 exports.handler = async function (event, context, callback) {
   console.log("Event: ", event);
-  var Event=new Event(process.env.DYNAMODB);
+  var Event = new PhotoEvent(process.env.DYNAMODB);
   var authorizationDecoded = jwt_decode(event.headers.Authorization);
   switch (event.httpMethod) {
     case 'GET':

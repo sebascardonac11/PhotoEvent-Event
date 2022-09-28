@@ -1,6 +1,5 @@
 const AWS = require('aws-sdk');
 //AWS.config.update({ region: 'us-east-2' });
-const s3Client = new AWS.S3();
 const dynamo = new AWS.DynamoDB.DocumentClient();
 
 module.exports = class Event {
@@ -11,12 +10,15 @@ module.exports = class Event {
     async getEvents(email) {
         try {
             var params = {
-                TableName: this.DYNAMODBTABLE
+                TableName: this.DYNAMODBTABLE,
+                IndexName: 'EntittGSI',
+                KeyConditionExpression: 'entity =:s',
+                ExpressionAttributeValues: {
+                  ':s': 'EVENT'
+                }
             }
-            var result = await dynamo.scan(params).promise();
+            var result = await dynamo.query(params).promise();
             var data = result.Items;
-
-           // var response=dynamo.query(KeyConditionExpression)
             return {
                 statusCode: 200,
                 data: data
