@@ -13,6 +13,10 @@ exports.handler = async function (event, context, callback) {
       console.log("### POST ####")
       this.response = await Event.setEvent(event.body, authorizationDecoded.email);
       break;
+    case 'DELETE':
+        console.log("### DELETE ####")
+        //this.response = await Event.setEvent(event.body, authorizationDecoded.email);
+        break;
     default:
     // code
   }
