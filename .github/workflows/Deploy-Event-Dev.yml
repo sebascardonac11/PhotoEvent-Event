@@ -3,6 +3,7 @@ on:
   push:
     branches:
     - feature/v2
+    - feature/v3
 env:
   enviromentName: dev
 jobs:
